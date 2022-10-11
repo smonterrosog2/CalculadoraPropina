@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
         }
         mostrarPropina(propina)
     }
-
     private fun mostrarPropina(propina: Double){
         val formatearPropina = NumberFormat.getCurrencyInstance().format(propina)
         binding.tvResultadoPropina.text = getString(R.string.tip_amount, formatearPropina)
