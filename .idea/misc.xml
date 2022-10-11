@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/sergi/AndroidStudioProjects/Kotlin/CalculadoraPropina/app/src/main/res/drawable-anydpi-v26/ic_launcher_background.xml" value="0.165" />
+        <entry key="..\:/Users/sergi/AndroidStudioProjects/Kotlin/CalculadoraPropina/app/src/main/res/drawable-anydpi-v26/ic_launcher_foreground.xml" value="0.165" />
         <entry key="..\:/Users/sergi/AndroidStudioProjects/Kotlin/CalculadoraPropina/app/src/main/res/layout/activity_main.xml" value="0.22447916666666667" />
       </map>
     </option>
