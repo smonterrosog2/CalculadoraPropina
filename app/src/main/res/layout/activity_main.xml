@@ -1,86 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".MainActivity">
+    android:layout_width="match_parent">
 
-    <EditText
-        android:id="@+id/etCostoServicio"
-        android:layout_width="160dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/costo_del_servicio"
-        android:inputType="numberDecimal"
-        android:minHeight="48dp"
-        android:textColorHint="#757575"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
+        android:padding="16dp"
+        tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tvPreguntaServicio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etCostoServicio"
-        android:text="@string/como_fue_el_servicio"/>
-
-    <RadioGroup
-        android:id="@+id/rgOpcionesPropina"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPreguntaServicio"
-        android:checkedButton="@id/rbPropinaVeintePorCiento">
-
-        <RadioButton
-            android:id="@+id/rbPropinaVeintePorCiento"
+        <ImageView
+            android:id="@+id/imgService"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/maravilloso_20" />
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="@+id/lCostoServicio"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/lCostoServicio"
+            app:srcCompat="@drawable/ic_store" />
 
-        <RadioButton
-            android:id="@+id/rbPropinaDieciochoPorCiento"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lCostoServicio"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:hint="@string/costo_del_servicio"
+            app:layout_constraintStart_toEndOf="@+id/imgService"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCostoServicio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/imgPreguntaServicios"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/muy_bien_18" />
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="@id/tvPreguntaServicio"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvPreguntaServicio"
+            app:srcCompat="@drawable/ic_service" />
 
-        <RadioButton
-            android:id="@+id/rbPropinaQuincePorCiento"
+        <TextView
+            android:id="@+id/tvPreguntaServicio"
+            style="@style/Widget.CalculadoraPropina.TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/bien_15" />
-    </RadioGroup>
+            android:layout_marginTop="16dp"
+            android:text="@string/como_fue_el_servicio"
+            app:layout_constraintStart_toStartOf="@id/lCostoServicio"
+            app:layout_constraintTop_toBottomOf="@id/lCostoServicio" />
 
-    <Switch
-        android:id="@+id/swithRedondearPropina"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:checked="true"
-        android:minHeight="48dp"
-        android:text="@string/redondear_la_propina"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/rgOpcionesPropina"
-        app:layout_constraintTop_toBottomOf="@id/rgOpcionesPropina" />
+        <RadioGroup
+            android:id="@+id/rgOpcionesPropina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/rbPropinaVeintePorCiento"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@+id/tvPreguntaServicio"
+            app:layout_constraintTop_toBottomOf="@+id/tvPreguntaServicio">
 
-    <Button
-        android:id="@+id/btnCalcular"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/calcular"
-        app:layout_constraintTop_toBottomOf="@id/swithRedondearPropina"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+            <RadioButton
+                android:id="@+id/rbPropinaVeintePorCiento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/maravilloso_20" />
 
-    <TextView
-        android:id="@+id/tvResultadoPropina"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnCalcular"
-        android:text="@string/tip_amount" />
+            <RadioButton
+                android:id="@+id/rbPropinaDieciochoPorCiento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/muy_bien_18" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <RadioButton
+                android:id="@+id/rbPropinaQuincePorCiento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bien_15" />
+        </RadioGroup>
+
+        <ImageView
+            android:id="@+id/imgRedondearPropina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/swithRedondearPropina"
+            app:layout_constraintStart_toStartOf="@+id/imgPreguntaServicios"
+            app:layout_constraintTop_toTopOf="@+id/swithRedondearPropina"
+            app:srcCompat="@drawable/ic_redondeo" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/swithRedondearPropina"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:minHeight="48dp"
+            android:text="@string/redondear_la_propina"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/rgOpcionesPropina"
+            app:layout_constraintTop_toBottomOf="@id/rgOpcionesPropina" />
+
+        <Button
+            android:id="@+id/btnCalcular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/calcular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/swithRedondearPropina"
+            app:layout_constraintTop_toBottomOf="@id/swithRedondearPropina" />
+
+        <TextView
+            android:id="@+id/tvResultadoPropina"
+            style="@style/Widget.CalculadoraPropina.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/tip_amount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnCalcular" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
